@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Docmate">
+  <defs>
+    <linearGradient id="dm-mint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9FF0E3" />
+      <stop offset="0.5" stop-color="#6EE0CF" />
+      <stop offset="1" stop-color="#3F8C82" />
+    </linearGradient>
+    <linearGradient id="dm-night" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#131E24" />
+      <stop offset="1" stop-color="#0A1014" />
+    </linearGradient>
+  </defs>
+
+  <!-- rounded-square app tile on the night background -->
+  <rect width="512" height="512" rx="108" ry="108" fill="#0A1014" />
+  <rect x="10" y="10" width="492" height="492" rx="100" ry="100" fill="url(#dm-night)" />
+
+  <!-- stylised heartbeat / ECG mark -->
+  <path
+    d="M 92 268 H 172 L 202 268 L 232 198 L 268 336 L 300 234 L 326 268 H 420"
+    fill="none"
+    stroke="url(#dm-mint)"
+    stroke-width="26"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- small "+" cross hint -->
+  <g stroke="url(#dm-mint)" stroke-width="22" stroke-linecap="round">
+    <path d="M 372 132 V 176" />
+    <path d="M 350 154 H 394" />
+  </g>
+</svg>

@@ -1,0 +1,156 @@
+[
+  {
+    "id": "BP-01",
+    "version": "1.0.0",
+    "title": "Blood pressure at emergency level",
+    "evaluator": "bp_emergency",
+    "level": 4,
+    "active": true,
+    "params": {
+      "sysThreshold": 180,
+      "diaThreshold": 120,
+      "requiresSymptom": true,
+      "symptomWindowHours": 36,
+      "sustainedSys": 160,
+      "sustainedDia": 100,
+      "sustainedReadings": 3,
+      "sustainedDays": 7,
+      "sustainedLevel": 3,
+      "requiresHypertension": true,
+      "validationDays": 7
+    },
+    "minData": { "vitals": 1 },
+    "reviewedBy": "Demo clinical advisor",
+    "reviewedAt": "2026-10-20",
+    "note": "Starting points for clinical review, not final medical values."
+  },
+  {
+    "id": "SUG-01",
+    "version": "1.0.0",
+    "title": "Fasting sugar rising on consecutive readings",
+    "evaluator": "sugar_rising",
+    "level": 3,
+    "active": true,
+    "params": {
+      "consecutive": 3,
+      "days": 21,
+      "baselineLiftPct": 20,
+      "defaultBaseline": 110
+    },
+    "minData": { "vitals": 3 },
+    "reviewedBy": "Demo clinical advisor",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "SUG-02",
+    "version": "1.0.0",
+    "title": "Low blood sugar with warning symptoms",
+    "evaluator": "sugar_hypo",
+    "level": 4,
+    "active": true,
+    "params": {
+      "threshold": 70,
+      "symptomWindowHours": 12,
+      "symptomKeys": ["weakness", "sweating", "dizziness"]
+    },
+    "minData": { "vitals": 1 },
+    "reviewedBy": "Demo clinical advisor",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "SYM-01",
+    "version": "1.0.0",
+    "title": "Same symptom logged repeatedly in a week",
+    "evaluator": "symptom_frequency",
+    "level": 3,
+    "active": true,
+    "params": {
+      "count": 3,
+      "days": 7,
+      "watchKeys": [
+        "chest_discomfort",
+        "headache",
+        "nausea",
+        "abdominal_pain",
+        "breathlessness",
+        "palpitations"
+      ]
+    },
+    "minData": { "symptoms": 3 },
+    "reviewedBy": "Demo clinical advisor",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "SYM-02",
+    "version": "1.0.0",
+    "title": "New red-flag symptom with high voice distress",
+    "evaluator": "redflag_distress",
+    "level": 4,
+    "active": true,
+    "params": { "distressThreshold": 85, "windowHours": 12 },
+    "minData": { "symptoms": 1 },
+    "reviewedBy": "Demo clinical advisor",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "SLP-01",
+    "version": "1.0.0",
+    "title": "Short sleep with rising BP or mood drop",
+    "evaluator": "sleep_decline",
+    "level": 3,
+    "active": true,
+    "params": {
+      "maxHours": 5,
+      "nights": 5,
+      "days": 7,
+      "moodDropBelow": 3,
+      "bpRiseMmHg": 8
+    },
+    "minData": { "journal": 5 },
+    "reviewedBy": "Demo clinical advisor",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "MED-01",
+    "version": "1.0.0",
+    "title": "Chronic medicine missed with rising vitals",
+    "evaluator": "med_adherence",
+    "level": 3,
+    "active": true,
+    "params": { "missedCount": 3, "days": 7, "requiresChronicCondition": true, "bpRiseMmHg": 8 },
+    "minData": { "medicineEvents": 3 },
+    "reviewedBy": "Demo clinical advisor",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "MIS-01",
+    "version": "1.0.0",
+    "title": "Blood pressure not logged for 10 days",
+    "evaluator": "bp_absence",
+    "level": 2,
+    "active": true,
+    "params": { "absenceDays": 10, "previousGapDays": 9, "requiresHypertension": true },
+    "minData": { "vitals": 2 },
+    "reviewedBy": "Demo clinical advisor",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "MOOD-01",
+    "version": "1.0.0",
+    "title": "Low mood, sleep and appetite falling together",
+    "evaluator": "mood_decline",
+    "level": 3,
+    "active": true,
+    "params": {
+      "days": 7,
+      "maxMood": 2,
+      "minDays": 5,
+      "maxSleep": 6,
+      "requiresAppetiteLoss": true,
+      "distressAboveBaseline": 10
+    },
+    "minData": { "journal": 5 },
+    "reviewedBy": "Demo clinical advisor",
+    "reviewedAt": "2026-10-20"
+  }
+]
